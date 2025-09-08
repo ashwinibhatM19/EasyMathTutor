@@ -1,0 +1,5 @@
+streamlit
+pandas
+sympy
+fpdf2
+ollama
