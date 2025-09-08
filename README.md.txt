@@ -1,89 +1,59 @@
-# 🧮 Easy Math Tutor  
-**Samsung Innovation Campus (SIC) Project**  
+# 🧮 Easy Math Tutor Pro
+
+## 1. Objective of Project
+The objective of this project is to create an **interactive math tutoring platform** that helps students practice problems, understand concepts, and track their progress.  
+It solves the **real-world problem** of making math learning engaging and accessible by combining:
+- Auto-generated quizzes across difficulty levels.
+- Deterministic (SymPy-based) and AI-driven explanations.
+- Built-in calculator, text-to-speech support, and notepad for rough work.
+- Progress tracking with analytics and downloadable PDF markcards.
+
+This addresses the lack of **personalized, interactive, and explainable math practice tools** for students in school, PU, and engineering levels.
 
 ---
 
-## 👩‍🎓 Author & Guide  
-**Author:** Ashwini Bhat M  
-**Course & Semester:** B.E. in Artificial Intelligence and Data Science — 7th Semester  
-**College:** GSSS Institute of Engineering and Technology for Women, Mysuru  
-**Project Type:** Samsung Innovation Campus (SIC) Project  
-**Guide:** Dr. Manjuprasad B  
+## 2. Data Source
+- **Source:** Data is not external. The project **generates problems dynamically** using Python functions (`random` and `SymPy`).  
+- **Size:** Since questions are generated on the fly, the dataset is virtually infinite.  
+- **Features of generated data:**
+  - Arithmetic problems (Addition, Subtraction).
+  - Algebraic problems (Quadratic equations: sum/product of roots, discriminant).
+  - Metadata such as difficulty level, subject, user progress, explanations, and scores are stored in `progress.json`.
 
 ---
 
-## 🎯 Objective  
-To build an **interactive AI-powered math learning platform** that helps students:  
-- Practice mathematics through **dynamic quizzes**.  
-- Understand **step-by-step solutions** using **deterministic solvers** and **AI explanations**.  
-- **Track their progress** with personalized performance analytics.  
-- Download **professional PDF markcards** for results.  
+## 3. Methodologies Used
+- **Dynamic Question Generation:** Randomized math problems to ensure variety in practice.  
+- **Expression Parsing & Preprocessing:** Custom regex and SymPy parser for user-input normalization (e.g., handling `2x`, `^`, implicit multiplication).  
+- **Step-by-Step Explanations:**  
+  - Deterministic (using SymPy for symbolic manipulation and solving).  
+  - AI-based (optional integration with Ollama Llama3 for conversational teaching style).  
+- **Learning Aids:**  
+  - Text-to-speech for auditory learners.  
+  - Integrated calculator with symbolic and numeric evaluations.  
+  - Rough notepad per question.  
+- **Performance Tracking:** User progress saved in JSON and visualized with Pandas/Streamlit dashboards.  
+- **Feedback & Assessment:** PDF markcards generated using `fpdf2`.
 
 ---
 
-## 🧠 Problem Statement  
-Students often **struggle with mathematics** due to:  
-- Lack of **personalized learning** and **interactive tools**.  
-- **Calculators** providing only the final answer, without explanations.  
-- Teachers needing **better tools** to track and evaluate student performance.  
-
-This creates a **gap between learning** and **understanding**.  
+## 4. AI / ML Models Used
+- **SymPy (Symbolic Mathematics):** Used for deterministic parsing, simplification, solving, factorization, and generating explanations.  
+- **Ollama Llama3 (Optional):** Provides AI-driven, human-like explanations of solutions when enabled.  
+- **Fallback Safe Evaluator:** For numeric-only inputs if SymPy is unavailable.
 
 ---
 
-## ✅ Proposed Solution  
-**Easy Math Tutor** addresses these challenges by:  
-- Generating **dynamic quizzes** based on level, subject, and difficulty.  
-- Providing **step-by-step deterministic solutions** using **SymPy**.  
-- Offering **AI-powered natural language explanations** using **LLaMA via Ollama**.  
-- Generating **professional PDF markcards** to evaluate and track performance.  
-- Offering a **dashboard with analytics** to visualize progress trends.  
+## 5. Predictions and Findings
+### Predictions
+- The system predicts **correctness of student answers** against the expected solution.  
+- It evaluates:
+  - Exact numeric values.
+  - Algebraic simplifications and polynomial roots.
+- Performance is quantified as **score (%)** per quiz attempt.
 
----
-
-## 🚀 Features  
-- **Dynamic Quiz Generation** → Questions based on difficulty, subject, and level  
-- **Step-by-Step Explanations** → Uses **SymPy** and **AI-based LLaMA**  
-- **Smart Calculator** → Solves expressions and equations instantly  
-- **PDF Markcards** → Color-coded and downloadable performance reports  
-- **Dashboard Analytics** → Track performance and identify weak areas  
-- **Text-to-Speech (TTS)** → Reads questions aloud for accessibility  
-- **Integrated Notepad** → For rough work and personal notes  
-
----
-
-## 🛠️ Technologies Used  
-
-| **Technology**       | **Purpose**                                |
-|----------------------|--------------------------------------------|
-| **Python**           | Core programming language                  |
-| **Streamlit**        | Building the interactive UI                |
-| **SymPy**            | Deterministic equation solving             |
-| **LLaMA via Ollama** | AI-powered natural language explanations   |
-| **FPDF2**            | PDF markcard generation                    |
-| **Pandas**           | Dashboard analytics & performance tracking |
-| **JSON**             | Stores user quiz history                   |
-
----
-
-## 🤖 Models Used  
-- **SymPy** → Deterministic solver for exact solutions  
-- **LLaMA (via Ollama)** → AI model for natural, conversational explanations  
-- **Randomized Quiz Generator** → Custom algorithm to generate unique questions  
-
----
-
-## 🔄 System Workflow  
-
-Below is the workflow of **Easy Math Tutor**:  
-
-1️⃣ **User Login / Input** → Name or email  
-2️⃣ **Quiz Setup** → Select level, subject, lesson, and difficulty  
-3️⃣ **Dynamic Quiz Generation** → Generate unique math problems  
-4️⃣ **Solutions & Explanations** → Deterministic or AI-based  
-5️⃣ **PDF Markcard Generation** → Personalized, professional results  
-6️⃣ **Dashboard Analytics** → Track performance trends  
-
-
-
-
+### Findings
+- Students receive **immediate feedback** on correctness.  
+- **Explanations** (step-by-step or AI conversational) help students understand mistakes.  
+- **Progress tracking** reveals improvement trends across levels and subjects.  
+- **PDF Markcards** allow offline review of performance.  
